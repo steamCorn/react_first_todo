@@ -1,0 +1,17 @@
+.items-style{
+    width: 350px;
+    height: 30px;
+    margin: 10px 25px;
+    background-color: seagreen;
+    position: relative;
+}
+
+#button-delete{
+    width: 20px;
+    height: 20px;
+    background-color: rgb(230, 24, 17);
+    border: 1px solid #b1adaded;
+    position: absolute;
+    top: 16%;
+    left: 92%;
+}

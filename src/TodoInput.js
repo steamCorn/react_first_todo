@@ -21,7 +21,7 @@ export default class TodoInput extends Component {
 
         if(newItem.text === '') return false;
         this.props.addItem(newItem); //даёт путь для использования функции родителя
-        //console.log(newItem);
+        
         this.setState({text: ''})
     
     };
