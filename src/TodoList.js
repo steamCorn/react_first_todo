@@ -58,6 +58,11 @@ export default class TodoList extends Component{
     render(){
         console.log(this.state);
         return(
+
+
+            <FlipMove  easing="ease-out" duration={350}
+            staggerDurationBy={20}
+            staggerDelayBy={20} >
             <div className="todo_list-style" onSubmit = {this.addItem}>
                 <TodoInput addItem={this.addItem} 
                 /*value = {this.state.currentItem.text}
@@ -67,13 +72,13 @@ export default class TodoList extends Component{
                 
                  {this.state.listItems.map((i) => {
                     return (
-                        <FlipMove duration={750} easing="ease-out">
+                        
                         <TodoItem 
                         key={i.id} 
                         item={i} 
                         deleteItem = {this.deleteItem}
                         setUpdate = {this.setUpdate} 
-                        /> </FlipMove>)
+                        /> )
                         
                 })} 
                 
@@ -81,6 +86,7 @@ export default class TodoList extends Component{
                 
 
             </div>
+            </FlipMove>
         )
     }
 }
