@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
 import './style/todoList.css';
+import FlipMove from 'react-flip-move';
+
 
 export default class TodoList extends Component{
     
@@ -23,15 +25,35 @@ export default class TodoList extends Component{
         //console.log(this.state);
     }
 
-    
 
     deleteItem = (id) => {
         const filtredItems = this.state.listItems.filter(item => item.id !== id);
         this.setState({
             listItems: filtredItems
         });
-    }
-    
+    };
+
+    setUpdate = (text, id) => {
+
+        const items = this.state.listItems;
+        let updataItems = items.map(item => {
+            
+            if (item.id === id){
+                item.text = text;
+                console.log(item.text);
+                return item;
+            }
+            return item;
+
+        });
+        return(
+            this.setState({
+                listItems: updataItems
+            })
+        )
+        
+        
+    };
 
     render(){
         console.log(this.state);
@@ -42,13 +64,21 @@ export default class TodoList extends Component{
                 onChange= {this.hendlerInput}  */></TodoInput>
                 
                 <div>
+                
                  {this.state.listItems.map((i) => {
-                    return <TodoItem key={i.id} item={i} deleteItem = {this.deleteItem} />
+                    return (
+                        <FlipMove duration={750} easing="ease-out">
+                        <TodoItem 
+                        key={i.id} 
+                        item={i} 
+                        deleteItem = {this.deleteItem}
+                        setUpdate = {this.setUpdate} 
+                        /> </FlipMove>)
+                        
                 })} 
+                
                 </div>
                 
-            
-                <button type="button">Clier list</button>
 
             </div>
         )

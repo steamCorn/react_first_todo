@@ -1,0 +1,126 @@
+
+/*
+.item-checkbox {
+	position: absolute;
+	z-index: -1;
+	opacity: 0;
+	margin: 10px 0 0 20px;
+}
+.item-checkbox + label {
+	position: relative;
+	padding: 0 0 0 60px;
+	cursor: pointer;
+}
+.item-checkbox + label:before {
+	content: '';
+	position: absolute;
+	top: -4px;
+	left: 0;
+	width: 50px;
+	height: 26px;
+	border-radius: 13px;
+	background: #CDD1DA;
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2);
+	transition: .2s;
+}
+.item-checkbox + label:after {
+	content: '';
+	position: absolute;
+	top: -2px;
+	left: 2px;
+	width: 22px;
+	height: 22px;
+	border-radius: 10px;
+	background: #FFF;
+	box-shadow: 0 2px 5px rgba(0,0,0,.3);
+	transition: .2s;
+}
+.item-checkbox:checked + label:before {
+	background: #9FD468;
+}
+.item-checkbox:checked + label:after {
+	left: 26px;
+}
+.item-checkbox:focus + label:before {
+	box-shadow: inset 0 2px 3px rgba(0,0,0,.2), 0 0 0 3px rgba(255,255,0,.7);
+}
+
+*/
+.item-checkbox{
+    width: 20px;
+    height: 20px;
+    margin: 0;
+}
+
+label {
+	margin-left: 5px;
+    position: relative;
+    /* display: flex; */
+    align-items: center;
+    flex-wrap: wrap;
+    /* line-height: 4rem; */
+    height: 20px;
+    width: 20px;
+    background: inherit;
+	}
+	
+	 
+	
+	input[type=checkbox] {
+	
+		position: relative;
+		cursor: pointer;
+		width: 20px;
+		height: 20px;
+		margin-right: 5px;
+		background: inherit;
+	
+	}
+	
+	 
+	
+	input[type=checkbox]:before {
+		content: "";
+		position: absolute;
+		width: 20px;
+		height: 20px;
+		background: inherit;
+		cursor: pointer;
+	
+	}
+
+	input[type=checkbox]:after {
+		content: "";
+		transition: .4s ease-in-out;
+		position: absolute;
+		z-index: 1;
+		width: 17px;
+		margin: 21% 0;
+		height: 17px;
+		border: 2px solid #c3d4ad;
+		border-color: #523527;
+		border-color: #20686c;
+		border-color: #005236;
+		border-color: #6bc4a6;
+		border-color: #fe982f;
+		border-color: #bc4f07;
+	
+	}
+
+	input[type=checkbox]:checked:after {
+	
+		transform: rotate(-45deg);
+		height: 8px;
+		    border-color: #ffffff; 
+			/* border-color: #523527; */
+			/* border-color: #20686c; */
+			/* border-color: #005236; */
+			/* border-color: #6bc4a6; */
+			/* border-color: #fe982f; */
+			/* border-color: #bc4f07; */
+		border-top-color: transparent;
+		border-right-color: transparent;
+	
+	}
+	
+

@@ -1,8 +1,15 @@
 .todo_list-style{
-    padding: 0px;
-    
+    padding: 0 0 1px 0;
     margin: 40px auto;
     width: 400px;
     min-height: 500px;
-    background-color: darkkhaki;
+    /* background-color: #647340; */
+    /* background-color: #20686c; */
+    /* background-color: #005236; */
+    /* background-color: #6bc4a6; */
+    /* background-color: #fe982f; */
+    background-color: #bc4f07;
+   /* -webkit-box-shadow: 0px 0px 28px 6px rgba(195,212,173,1); */
+   /* -moz-box-shadow: 0px 0px 28px 6px rgba(195,212,173,1); */
+   /* box-shadow: 0px 0px 28px 6px rgba(195,212,173,1); */
 }

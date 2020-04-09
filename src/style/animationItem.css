@@ -1,0 +1,15 @@
+.items-style{
+    -webkit-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    transition-duration: 1s;
+}
+
+.items-style:hover {
+    /* background: #fc0; */
+    /* background-color: #20686c; */
+    /* background-color: #005236; */
+    background-color: #6bc4a6;
+    /* background-color: #fe982f; */
+    /* background-color: #bc4f07; */
+   }
