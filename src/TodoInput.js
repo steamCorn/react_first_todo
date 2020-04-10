@@ -40,6 +40,7 @@ export default class TodoInput extends Component {
             <form className = "input-style">
 
                 <input type="text" id="input" placeholder="Add a item.."
+                    autoComplete="on"
                     onChange={this.hendlerInput}  
                     value={this.state.text} autoFocus/>
 

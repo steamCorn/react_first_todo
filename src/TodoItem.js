@@ -2,16 +2,19 @@ import React, {Component} from 'react';
 import './style/todoItem.css';
 import './style/checkbox.css';
 import './style/animationItem.css';
+import './style/animationForDelete.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 
+
+
 export default class TodoItem extends Component{
     onDeleteClick = (e) => {
-        
-      this.props.deleteItem(this.props.item.id);  
-
+         
+        this.props.deleteItem(this.props.item.id);  
+      
     };
 
     onChange = (e) => {
@@ -28,7 +31,7 @@ export default class TodoItem extends Component{
         return(
             <div>
                 
-                <div className="items-style"> 
+                <div className="items-style bounceIn"> 
                        {/* 
                     <input type="checkbox" className="item-checkbox" id={this.props.item.id}></input>
                     <label htmlFor={this.props.item.id}></label>
@@ -55,12 +58,11 @@ export default class TodoItem extends Component{
 
                         <span>{this.props.item.text}</span> 
 
-
-
                         <span>
                             
                                 <FontAwesomeIcon icon={faTrash} 
-                                id="button-delete" onClick = {this.onDeleteClick}/>
+                                id="button-delete" 
+                                onClick = {this.onDeleteClick}/>
                             
                         </span>
                         
@@ -76,7 +78,7 @@ export default class TodoItem extends Component{
                     */}
                         
                 </div>
-
+                
                
             </div>
         )

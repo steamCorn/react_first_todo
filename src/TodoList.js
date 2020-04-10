@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
 import './style/todoList.css';
-import FlipMove from 'react-flip-move';
-
 
 export default class TodoList extends Component{
     
@@ -55,14 +53,13 @@ export default class TodoList extends Component{
         
     };
 
+
     render(){
         console.log(this.state);
         return(
 
 
-            <FlipMove  easing="ease-out" duration={350}
-            staggerDurationBy={20}
-            staggerDelayBy={20} >
+            
             <div className="todo_list-style" onSubmit = {this.addItem}>
                 <TodoInput addItem={this.addItem} 
                 /*value = {this.state.currentItem.text}
@@ -73,12 +70,13 @@ export default class TodoList extends Component{
                  {this.state.listItems.map((i) => {
                     return (
                         
-                        <TodoItem 
-                        key={i.id} 
-                        item={i} 
-                        deleteItem = {this.deleteItem}
-                        setUpdate = {this.setUpdate} 
-                        /> )
+                            <TodoItem 
+                            key={i.id} 
+                            item={i} 
+                            deleteItem = {this.deleteItem}
+                            setUpdate = {this.setUpdate} 
+                            /> 
+                        )
                         
                 })} 
                 
@@ -86,7 +84,7 @@ export default class TodoList extends Component{
                 
 
             </div>
-            </FlipMove>
+            
         )
     }
 }
