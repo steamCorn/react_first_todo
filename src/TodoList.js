@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
 import './style/todoList.css';
+import './style/animationItem.css';
 
 export default class TodoList extends Component{
     

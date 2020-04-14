@@ -7,9 +7,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
-
-
-
 export default class TodoItem extends Component{
     onDeleteClick = (e) => {
          
@@ -31,7 +28,7 @@ export default class TodoItem extends Component{
         return(
             <div>
                 
-                <div className="items-style bounceIn"> 
+                <div className="items-style zoomIn"> 
                        {/* 
                     <input type="checkbox" className="item-checkbox" id={this.props.item.id}></input>
                     <label htmlFor={this.props.item.id}></label>
