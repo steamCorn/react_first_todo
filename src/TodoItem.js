@@ -8,9 +8,24 @@ import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
 
 export default class TodoItem extends Component{
+
+    constructor(props){
+        super(props);
+        this.state = {
+            isDeleting: false
+        }
+    }
+
+
     onDeleteClick = (e) => {
-         
-        this.props.deleteItem(this.props.item.id);  
+        this.setState({
+            isDeleting: true
+        }) 
+
+        setTimeout(() => {
+            this.props.deleteItem(this.props.item.id);
+          }, 600);
+          
       
     };
 
@@ -20,63 +35,35 @@ export default class TodoItem extends Component{
         this.props.setUpdate(e.target.value, this.props.item.id);
     
     };
-    
 
     render(){
-        
+    let baseDivStyle = "items-style zoomIn";
+    const style = this.state.isDeleting ? " flipOutX zoomOut" : "" ;
+    baseDivStyle += style;
 
         return(
             <div>
-                
-                <div className="items-style zoomIn"> 
-                       {/* 
-                    <input type="checkbox" className="item-checkbox" id={this.props.item.id}></input>
-                    <label htmlFor={this.props.item.id}></label>
-                     */}
-
-                    <label >
+                <div className={baseDivStyle}> 
+                    
+                    <label>
 
                     <input type="checkbox" className="item-checkbox" ></input>
 
-
                     </label>
-
-
-
-                     
+             
                     <p className="item-text"> 
-                        
-                       {/*
-                        <input type="text"
-                        id={this.props.item.id} 
-                        value= {this.props.item.text} 
-                        onChange ={this.onChange} ></input>  
-*/}
-
+   
                         <span>{this.props.item.text}</span> 
 
                         <span>
                             
-                                <FontAwesomeIcon icon={faTrash} 
-                                id="button-delete" 
-                                onClick = {this.onDeleteClick}/>
+                            <FontAwesomeIcon icon={faTrash} 
+                            id="button-delete" 
+                            onClick = {this.onDeleteClick}/>
                             
                         </span>
-                        
-                        {/*
-                         
-                        */}
-
-
                     </p> 
-
-                    {/*
-                    <div contentEditable={true}>111</div>
-                    */}
-                        
                 </div>
-                
-               
             </div>
         )
     }

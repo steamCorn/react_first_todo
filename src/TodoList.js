@@ -5,8 +5,7 @@ import './style/todoList.css';
 import './style/animationItem.css';
 
 export default class TodoList extends Component{
-    
-    
+
     constructor(props){
         super(props);
         this.state={
@@ -23,7 +22,6 @@ export default class TodoList extends Component{
         });
         //console.log(this.state);
     }
-
 
     deleteItem = (id) => {
         const filtredItems = this.state.listItems.filter(item => item.id !== id);
@@ -50,8 +48,7 @@ export default class TodoList extends Component{
                 listItems: updataItems
             })
         )
-        
-        
+       
     };
 
 
@@ -59,31 +56,26 @@ export default class TodoList extends Component{
         console.log(this.state);
         return(
 
-
-            
             <div className="todo_list-style" onSubmit = {this.addItem}>
-                <TodoInput addItem={this.addItem} 
-                /*value = {this.state.currentItem.text}
-                onChange= {this.hendlerInput}  */></TodoInput>
+
+                <TodoInput addItem={this.addItem}></TodoInput>
                 
                 <div>
                 
-                 {this.state.listItems.map((i) => {
+                {this.state.listItems.map((i) => {
                     return (
                         
-                            <TodoItem 
-                            key={i.id} 
-                            item={i} 
-                            deleteItem = {this.deleteItem}
-                            setUpdate = {this.setUpdate} 
-                            /> 
+                        <TodoItem 
+                        key={i.id} 
+                        item={i} 
+                        deleteItem = {this.deleteItem}
+                        setUpdate = {this.setUpdate} 
+                        /> 
                         )
                         
                 })} 
                 
                 </div>
-                
-
             </div>
             
         )
