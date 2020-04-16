@@ -22,13 +22,31 @@ export default class TodoList extends Component{
         });
         //console.log(this.state);
     }
+     
 
     deleteItem = (id) => {
         const filtredItems = this.state.listItems.filter(item => item.id !== id);
+        
         this.setState({
             listItems: filtredItems
         });
     };
+
+    changeItemValue = (id) => {
+        let copyOfItems = [...this.state.listItems];
+
+        let itemFromIndex = copyOfItems.findIndex(obj => obj.id === id);
+        console.log(itemFromIndex);
+
+        copyOfItems[itemFromIndex].value = !copyOfItems[itemFromIndex].value;
+
+        this.setState({
+            listItems: copyOfItems
+        })
+        
+    }
+
+
 
     setUpdate = (text, id) => {
 
@@ -70,6 +88,7 @@ export default class TodoList extends Component{
                         item={i} 
                         deleteItem = {this.deleteItem}
                         setUpdate = {this.setUpdate} 
+                        changeItemValue = {this.changeItemValue}
                         /> 
                         )
                         

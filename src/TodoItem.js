@@ -24,7 +24,7 @@ export default class TodoItem extends Component{
 
         setTimeout(() => {
             this.props.deleteItem(this.props.item.id);
-          }, 600);
+          }, 300);
           
       
     };
@@ -35,6 +35,11 @@ export default class TodoItem extends Component{
         this.props.setUpdate(e.target.value, this.props.item.id);
     
     };
+
+    onChecked = (e) => {
+        console.log(this.props.item.id);
+        this.props.changeItemValue(this.props.item.id);
+    }
 
     render(){
     let baseDivStyle = "items-style zoomIn";
@@ -47,7 +52,8 @@ export default class TodoItem extends Component{
                     
                     <label>
 
-                    <input type="checkbox" className="item-checkbox" ></input>
+                    <input type="checkbox" className="item-checkbox" 
+                    onClick = {this.onChecked}></input>
 
                     </label>
              
