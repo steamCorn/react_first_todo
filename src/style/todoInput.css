@@ -42,4 +42,36 @@
     cursor: pointer;
     font-weight: bold;
 }
+#add-button:hover, #save-button:hover{
+    /* background: #fc0; */
+    /* background-color: #20686c; */
+    /* background-color: #005236; */
+    background-color: #6bc4a6;
+    /* background-color: #fe982f; */
+    /* background-color: #bc4f07; */
 
+}
+
+#add-button, #save-button{
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    
+}
+
+#save-button{
+    width: 100%;
+    height: 40px;
+    border: 0;
+    /* background-color: #c3d4ad; */
+    /* background-color: #20686c; */
+    background-color: #005236;
+    /* background-color: #6bc4a6; */
+    /* background-color: #fe982f; */
+    /* background-color: #bc4f07; */
+    color: white;
+    margin: 10px 0;
+    cursor: pointer;
+    font-weight: bold;
+}

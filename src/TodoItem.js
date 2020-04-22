@@ -30,21 +30,27 @@ export default class TodoItem extends Component{
     };
 
     onChange = (e) => {
-        console.log(e.target.value);
-        console.log(this.props.item.id);
+        //console.log(e.target.value);
+        //console.log(this.props.item.id);
         this.props.setUpdate(e.target.value, this.props.item.id);
     
     };
 
     onChecked = (e) => {
-        console.log(this.props.item.id);
+        //console.log(this.props.item.id);
         this.props.changeItemValue(this.props.item.id);
+        console.log(this.state.isChecked)
+        
     }
 
     render(){
     let baseDivStyle = "items-style zoomIn";
     const style = this.state.isDeleting ? " flipOutX zoomOut" : "" ;
     baseDivStyle += style;
+        
+    let opacityStyle = this.props.item.value ? " opacity" : "";
+    baseDivStyle += opacityStyle;
+    console.log(baseDivStyle)
 
         return(
             <div>

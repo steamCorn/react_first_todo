@@ -9,9 +9,17 @@ export default class TodoList extends Component{
     constructor(props){
         super(props);
         this.state={
-            listItems: []
+            listItems: [],
+            isLoading: false
             
         }   
+    }
+
+    componentWillMount = () =>{
+        localStorage.getItem('listItems') && this.setState({
+            listItems: JSON.parse(localStorage.getItem('listItems')),
+            isLoading: true
+        })
     }
 
     addItem = (item) => {
@@ -36,7 +44,7 @@ export default class TodoList extends Component{
         let copyOfItems = [...this.state.listItems];
 
         let itemFromIndex = copyOfItems.findIndex(obj => obj.id === id);
-        console.log(itemFromIndex);
+        //console.log(itemFromIndex);
 
         copyOfItems[itemFromIndex].value = !copyOfItems[itemFromIndex].value;
 
@@ -69,6 +77,12 @@ export default class TodoList extends Component{
        
     };
 
+    saveInLocalStorage = (key, value) => {
+    
+       localStorage.setItem('listItems', JSON.stringify(this.state.listItems));
+    
+    }
+
 
     render(){
         console.log(this.state);
@@ -91,10 +105,12 @@ export default class TodoList extends Component{
                         changeItemValue = {this.changeItemValue}
                         /> 
                         )
-                        
                 })} 
-                
+                <button type="submit" id="save-button" onClick={this.saveInLocalStorage}>Remember this list</button>
                 </div>
+
+                
+
             </div>
             
         )
