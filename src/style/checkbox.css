@@ -48,27 +48,14 @@ label {
 		width: 17px;
 		margin: 21% 0;
 		height: 17px;
-		border: 2px solid #c3d4ad;
-		border-color: #523527;
-		border-color: #20686c;
-		border-color: #005236;
-		border-color: #6bc4a6;
-		border-color: #fe982f;
-		border-color: #bc4f07;
-	
+		border: 2px solid  #bc4f07;
 	}
 
 	input[type=checkbox]:checked:after {
 	
 		transform: rotate(-45deg);
 		height: 8px;
-		    border-color: #ffffff; 
-			/* border-color: #523527; */
-			/* border-color: #20686c; */
-			/* border-color: #005236; */
-			/* border-color: #6bc4a6; */
-			/* border-color: #fe982f; */
-			/* border-color: #bc4f07; */
+		border-color: #ffffff; 	
 		border-top-color: transparent;
 		border-right-color: transparent;
 	

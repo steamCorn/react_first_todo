@@ -12,7 +12,8 @@ export default class TodoItem extends Component{
     constructor(props){
         super(props);
         this.state = {
-            isDeleting: false
+            isDeleting: false,
+            isChecked: false
         }
     }
 
@@ -39,7 +40,6 @@ export default class TodoItem extends Component{
     onChecked = (e) => {
         //console.log(this.props.item.id);
         this.props.changeItemValue(this.props.item.id);
-        console.log(this.state.isChecked)
         
     }
 
@@ -50,7 +50,7 @@ export default class TodoItem extends Component{
         
     let opacityStyle = this.props.item.value ? " opacity" : "";
     baseDivStyle += opacityStyle;
-    console.log(baseDivStyle)
+    //console.log(baseDivStyle)
 
         return(
             <div>
@@ -59,7 +59,7 @@ export default class TodoItem extends Component{
                     <label>
 
                     <input type="checkbox" className="item-checkbox" 
-                    onClick = {this.onChecked}></input>
+                    onChange = {this.onChecked} checked={this.props.item.value}></input>
 
                     </label>
              

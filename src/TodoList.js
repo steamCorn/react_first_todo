@@ -15,7 +15,7 @@ export default class TodoList extends Component{
         }   
     }
 
-    componentWillMount = () =>{
+    UNSAFE_componentWillMount = () =>{
         localStorage.getItem('listItems') && this.setState({
             listItems: JSON.parse(localStorage.getItem('listItems')),
             isLoading: true
@@ -47,6 +47,7 @@ export default class TodoList extends Component{
         //console.log(itemFromIndex);
 
         copyOfItems[itemFromIndex].value = !copyOfItems[itemFromIndex].value;
+        console.log(copyOfItems[itemFromIndex].value)
 
         this.setState({
             listItems: copyOfItems
@@ -106,7 +107,7 @@ export default class TodoList extends Component{
                         /> 
                         )
                 })} 
-                <button type="submit" id="save-button" onClick={this.saveInLocalStorage}>Remember this list</button>
+                <button type="submit" id="save-button" onClick={this.saveInLocalStorage} >Remember this list</button>
                 </div>
 
                 
