@@ -28,7 +28,7 @@ export default class TodoList extends Component{
         this.setState({
             listItems : todoItem
         });
-        //console.log(this.state);
+        
     }
      
 
@@ -38,24 +38,23 @@ export default class TodoList extends Component{
         this.setState({
             listItems: filtredItems
         });
+        
     };
 
     changeItemValue = (id) => {
         let copyOfItems = [...this.state.listItems];
 
         let itemFromIndex = copyOfItems.findIndex(obj => obj.id === id);
-        //console.log(itemFromIndex);
+        
 
         copyOfItems[itemFromIndex].value = !copyOfItems[itemFromIndex].value;
-        console.log(copyOfItems[itemFromIndex].value)
+        //console.log(copyOfItems[itemFromIndex].value)
 
         this.setState({
             listItems: copyOfItems
         })
-        
+   
     }
-
-
 
     setUpdate = (text, id) => {
 
@@ -74,8 +73,9 @@ export default class TodoList extends Component{
             this.setState({
                 listItems: updataItems
             })
+            
         )
-       
+          
     };
 
     saveInLocalStorage = (key, value) => {
@@ -86,7 +86,7 @@ export default class TodoList extends Component{
 
 
     render(){
-        console.log(this.state);
+        //console.log(this.state);
         return(
 
             <div className="todo_list-style" onSubmit = {this.addItem}>

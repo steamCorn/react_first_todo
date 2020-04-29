@@ -23,7 +23,8 @@
 .input-style input::placeholder{
     color: rgba(255, 255, 255, 0.5);
 }
-.input-style input:focus, #add-button:focus{
+.input-style input:focus, #add-button:focus,
+#save-button:focus{
     outline: none;
 }
 

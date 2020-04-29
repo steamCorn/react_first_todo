@@ -25,22 +25,15 @@ export default class TodoItem extends Component{
 
         setTimeout(() => {
             this.props.deleteItem(this.props.item.id);
-          }, 300);
-          
-      
+          }, 300);   
     };
 
     onChange = (e) => {
-        //console.log(e.target.value);
-        //console.log(this.props.item.id);
-        this.props.setUpdate(e.target.value, this.props.item.id);
-    
+        this.props.setUpdate(e.target.value, this.props.item.id);  
     };
 
     onChecked = (e) => {
-        //console.log(this.props.item.id);
-        this.props.changeItemValue(this.props.item.id);
-        
+        this.props.changeItemValue(this.props.item.id);        
     }
 
     render(){
@@ -50,7 +43,7 @@ export default class TodoItem extends Component{
         
     let opacityStyle = this.props.item.value ? " opacity" : "";
     baseDivStyle += opacityStyle;
-    //console.log(baseDivStyle)
+
 
         return(
             <div>
