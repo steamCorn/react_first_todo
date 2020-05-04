@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
-import './style/todoItem.css';
-import './style/checkbox.css';
-import './style/animationItem.css';
-import './style/animationForDelete.css';
+import '../../style/todoItem.css';
+import '../../style/checkbox.css';
+import '../../style/animationItem.css';
+import '../../style/animationForDelete.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
