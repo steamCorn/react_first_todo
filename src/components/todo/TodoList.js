@@ -3,6 +3,9 @@ import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
 import '../../style/todoList.css';
 import '../../style/animationItem.css';
+import '../../services/saveData';
+
+import { getTodos, saveTodos } from '../../services/saveData';
 
 export default class TodoList extends Component{
 
@@ -15,12 +18,19 @@ export default class TodoList extends Component{
         }   
     }
 
-    UNSAFE_componentWillMount = () =>{
-        localStorage.getItem('listItems') && this.setState({
-            listItems: JSON.parse(localStorage.getItem('listItems')),
+    componentDidMount = () =>{
+        // const flag = true; 
+        
+        //let items = localStorage.getItem('listItems');
+        //getTodos()
+        let saveDataFromLS = getTodos();
+
+        this.setState({
+            listItems: saveDataFromLS,
             isLoading: true
         })
     }
+
 
     addItem = (item) => {
         //let todoItem = this.state.listItems.concat(item);
@@ -78,9 +88,9 @@ export default class TodoList extends Component{
           
     };
 
-    saveInLocalStorage = (key, value) => {
+    saveInLocalStorage = () => {
     
-       localStorage.setItem('listItems', JSON.stringify(this.state.listItems));
+      saveTodos(this.state.listItems);
     
     }
 
@@ -89,30 +99,32 @@ export default class TodoList extends Component{
         //console.log(this.state);
         return(
 
-            <div className="todo_list-style" onSubmit = {this.addItem}>
+        <div className="todo_list-style" onSubmit = {this.addItem}>
 
-                <TodoInput addItem={this.addItem}></TodoInput>
-                
-                <div>
-                
+            <TodoInput addItem={this.addItem}></TodoInput>
+
+            <div>
+
                 {this.state.listItems.map((i) => {
-                    return (
-                        
-                        <TodoItem 
-                        key={i.id} 
-                        item={i} 
-                        deleteItem = {this.deleteItem}
-                        setUpdate = {this.setUpdate} 
-                        changeItemValue = {this.changeItemValue}
-                        /> 
+                        return (
+                            
+                            <TodoItem
+                                key={i.id}
+                                item={i}
+                                deleteItem={this.deleteItem}
+                                setUpdate={this.setUpdate}
+                                changeItemValue={this.changeItemValue}
+                            />
                         )
-                })} 
+  
+                })
+                }
                 <button type="submit" id="save-button" onClick={this.saveInLocalStorage} >Remember this list</button>
-                </div>
-
-                
-
             </div>
+
+
+
+        </div>
             
         )
     }
