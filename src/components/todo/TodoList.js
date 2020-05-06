@@ -92,6 +92,7 @@ export default class TodoList extends Component{
     
         //saveTodos(this.state.listItems);
         methodPost(this.state.listItems);
+        console.log(JSON.stringify(this.state.listItems));
         
     }
 

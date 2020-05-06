@@ -13,13 +13,13 @@ export function saveTodos(todos){
     localStorage.setItem(todoKey, JSON.stringify(todos));
 }
 
-export function methodPost(){
+export function methodPost(todos){
     const requestOptions = {
         method: 'POST',
-        body: JSON.stringify({ data: 'todos'})
+        body: JSON.stringify({ data: todos})
     };
-    fetch('http://localhost:3000/todos', requestOptions)
-        .then(response => response.json())
+    fetch('http://localhost:3001/todos', requestOptions)
+        .then(response => { console.log(response); response.json()})
         .catch(error => { console.error('There was an error!', error)
 
     });
@@ -30,7 +30,7 @@ export function methodPost(){
 //         method: 'GET',
 //         body: JSON.stringify({ title: 'React GET Request Example'})
 //     };
-//     fetch('http://localhost:3000/todos', requestOptions)
+//     fetch('http://localhost:3001/todos', requestOptions)
 //         .then(response => response.json())
 //         .catch(error => { console.error('There was an error!', error)
 
