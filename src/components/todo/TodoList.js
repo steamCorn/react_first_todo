@@ -5,7 +5,7 @@ import '../../style/todoList.css';
 import '../../style/animationItem.css';
 import '../../services/saveData';
 
-import { getTodos, saveTodos } from '../../services/saveData';
+import { getTodos, saveTodos, methodPost } from '../../services/saveData';
 
 export default class TodoList extends Component{
 
@@ -90,8 +90,9 @@ export default class TodoList extends Component{
 
     saveInLocalStorage = () => {
     
-      saveTodos(this.state.listItems);
-    
+        //saveTodos(this.state.listItems);
+        methodPost(this.state.listItems);
+        
     }
 
 
