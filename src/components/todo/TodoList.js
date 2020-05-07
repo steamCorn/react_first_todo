@@ -5,7 +5,7 @@ import '../../style/todoList.css';
 import '../../style/animationItem.css';
 import '../../services/saveData';
 
-import { getTodos, saveTodos, methodPost } from '../../services/saveData';
+import { getTodos, saveTodos, methodPost, methodGet } from '../../services/saveData';
 
 export default class TodoList extends Component{
 
@@ -18,17 +18,25 @@ export default class TodoList extends Component{
         }   
     }
 
-    componentDidMount = () =>{
+    componentDidMount = async () =>{
         // const flag = true; 
         
         //let items = localStorage.getItem('listItems');
         //getTodos()
-        let saveDataFromLS = getTodos();
+        
+            // let saveDataFromLS = getTodos();
 
+            // this.setState({
+            //     listItems: saveDataFromLS,
+            //     isLoading: true
+            // })
+
+        let todos = await methodGet();
         this.setState({
-            listItems: saveDataFromLS,
+            listItems: todos,
             isLoading: true
         })
+
     }
 
 
