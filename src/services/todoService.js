@@ -17,7 +17,7 @@ export async function getTodos (){
 const todoKey = 'todos';
 
 function getTodosToLocalStorage(){
-    console.log('todo geted to Local Storage');
+    console.log('todo came from Local Storage');
     let items = localStorage.getItem(todoKey);
     if (items){
         return JSON.parse(items);
@@ -55,6 +55,6 @@ async function getTodosToBackend(){
         })
         .catch(error => { console.error('There was an error from GET!', error)    
     });
-    console.log('todo geted to Backend');
+    console.log('todo came from Backend');
     return result;    
 }

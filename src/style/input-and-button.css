@@ -61,8 +61,9 @@
     
 }
 
-#save-button{
-    width: 100%;
+#save-button, #button-for-all-list,
+#button-completed, #button-for-unchecked-items{
+    width: 25%;
     height: 40px;
     border: 0;
     /* background-color: #c3d4ad; */
@@ -72,7 +73,24 @@
     /* background-color: #fe982f; */
     /* background-color: #bc4f07; */
     color: white;
-    margin: 10px 0;
     cursor: pointer;
     font-weight: bold;
+}
+
+.range_buttons{
+    position: relative;
+    background-color:#20686c;
+    width: 100%;
+    margin: 10px 0;
+}
+
+
+#loading-button{
+    position: absolute;
+    top: -230%;
+    left: 110%;
+    width: 70px;
+    height: 50px;
+    border: 3px solid black;
+    background-color: #46e640;
 }

@@ -5,13 +5,19 @@ import '../../style/todoList.css';
 import '../../style/animationItem.css';
 import { setTodos, getTodos } from '../../services/todoService';
 
+//constants for filtering items
+const allItems = "allItems";
+const completedItems = "completedItems";
+const activeItems = "activeItems";
+
 export default class TodoList extends Component{
 
     constructor(props){
         super(props);
         this.state={
             listItems: [],
-            isLoading: false    
+            isLoading: false,
+            filter: allItems    //фильтр один на три кнопки
         }   
     }
 
@@ -69,14 +75,66 @@ export default class TodoList extends Component{
         setTodos(this.state.listItems);
     }
 
+    sortingItems = (appliedFilter) => {
+        
+        this.setState({
+            filter: appliedFilter
+        });
+        console.log(appliedFilter);
+        
+           
+    };
+
+    loadingData = () =>{
+        this.setState({
+            loadingData : true
+        })
+        console.log("Click BIG button")
+    }
 
     render(){
-        return(
-        <div className="todo_list-style" onSubmit = {this.addItem}>
 
+        //sorting for filtering elements
+        
+        let filteredTodos = [];   
+        if (this.state.filter === allItems){
+            filteredTodos = this.state.listItems;
+        };
+        if (this.state.filter === completedItems) {
+            filteredTodos = this.state.listItems.filter(item => item.value )
+        };
+        if (this.state.filter === activeItems) {
+            filteredTodos = this.state.listItems.filter(item => !item.value)
+            console.log("This code wasn't writed")
+            }
+
+        // loading data
+
+        let styleForList = "";
+        const loadingStyle = this.state.loadingData ? " loading" : "";
+        styleForList += loadingStyle;
+            
+        
+        return(    
+        <div className="todo_list-style" onSubmit = {this.addItem}>
+            <div className={styleForList}>
             <TodoInput addItem={this.addItem}></TodoInput>
+            <div className="range_buttons">
+                <button  type="submit" id="button-for-all-list" 
+                onClick={() => this.sortingItems(allItems)}>All list</button> 
+
+                <button  type="submit" id="button-completed" 
+                onClick={() => this.sortingItems(completedItems)} >Completed</button>
+
+                <button  type="submit" id="button-for-unchecked-items" 
+                onClick={() => this.sortingItems(activeItems)}>Active</button> 
+
+                <button type="submit" id="save-button" onClick={this.saveInLocalStorage} >Save</button>
+
+                <button type="submit" id="loading-button" onClick={this.loadingData}>Big fat button</button>
+            </div>
             <div>
-                {this.state.listItems.map((i) => {
+                {filteredTodos.map((i) => {
                     return (
                         <TodoItem
                             key={i.id}
@@ -86,8 +144,9 @@ export default class TodoList extends Component{
                             changeItemValue={this.changeItemValue}
                         />
                     ) 
-                })}
-                <button type="submit" id="save-button" onClick={this.saveInLocalStorage} >Remember this list</button>
+                })}                
+               
+            </div>
             </div>
         </div>    
         )

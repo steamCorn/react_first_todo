@@ -12,11 +12,9 @@ export default class TodoItem extends Component{
     constructor(props){
         super(props);
         this.state = {
-            isDeleting: false,
-            isChecked: false
+            isDeleting: false
         }
     }
-
 
     onDeleteClick = (e) => {
         this.setState({
@@ -26,10 +24,6 @@ export default class TodoItem extends Component{
         setTimeout(() => {
             this.props.deleteItem(this.props.item.id);
           }, 300);   
-    };
-
-    onChange = (e) => {
-        this.props.setUpdate(e.target.value, this.props.item.id);  
     };
 
     onChecked = (e) => {
