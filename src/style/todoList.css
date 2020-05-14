@@ -15,10 +15,4 @@
    /* box-shadow: 0px 0px 28px 6px rgba(195,212,173,1); */
 }
 
-.loading{
-    width: 600px;
-    height: 800px;
-    border: 2px solid black;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.425);
-}
+

@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import TodoInput from './TodoInput';
 import TodoItem from './TodoItem';
+import Loading from './Loading';
 import '../../style/todoList.css';
 import '../../style/animationItem.css';
+import '../../style/loading.css';
 import { setTodos, getTodos } from '../../services/todoService';
 
 //constants for filtering items
@@ -86,11 +88,44 @@ export default class TodoList extends Component{
     };
 
     loadingData = () =>{
+        
         this.setState({
-            loadingData : true
+            isLoading : !this.state.isLoading
         })
-        console.log("Click BIG button")
+        console.log("Click BIG button", this.state.isLoading)
     }
+
+    // loadingTodos = () => {
+    //     let filteredTodos = [];   
+    //     if (this.state.filter === allItems){
+    //         filteredTodos = this.state.listItems;
+    //     };
+    //     if (this.state.filter === completedItems) {
+    //         filteredTodos = this.state.listItems.filter(item => item.value )
+    //     };
+    //     if (this.state.filter === activeItems) {
+    //         filteredTodos = this.state.listItems.filter(item => !item.value)
+    //         console.log("This code wasn't writed")
+    //         }
+
+
+    //     if (this.state.isLoading){
+    //         return <Loading/>;
+    //     }
+    //     return <div>
+    //     {filteredTodos.map((i) => {
+    //         return (
+    //             <TodoItem
+    //                 key={i.id}
+    //                 item={i}
+    //                 deleteItem={this.deleteItem}
+    //                 setUpdate={this.setUpdate}
+    //                 changeItemValue={this.changeItemValue}
+    //             />
+    //         ) 
+    //     })}
+    // </div>
+    // }
 
     render(){
 
@@ -106,18 +141,21 @@ export default class TodoList extends Component{
         if (this.state.filter === activeItems) {
             filteredTodos = this.state.listItems.filter(item => !item.value)
             console.log("This code wasn't writed")
-            }
+            };
 
-        // loading data
 
-        let styleForList = "";
-        const loadingStyle = this.state.loadingData ? " loading" : "";
-        styleForList += loadingStyle;
+
+
+        // loading data   (НАДО УДАЛИТЬ)
+
+        // let styleForList = "";
+        // const loadingStyle = this.state.isLoading ? " loading" : "";
+        // styleForList += loadingStyle;
             
         
         return(    
         <div className="todo_list-style" onSubmit = {this.addItem}>
-            <div className={styleForList}>
+            
             <TodoInput addItem={this.addItem}></TodoInput>
             <div className="range_buttons">
                 <button  type="submit" id="button-for-all-list" 
@@ -144,10 +182,9 @@ export default class TodoList extends Component{
                             changeItemValue={this.changeItemValue}
                         />
                     ) 
-                })}                
-               
+                })}
             </div>
-            </div>
+            
         </div>    
         )
     }
