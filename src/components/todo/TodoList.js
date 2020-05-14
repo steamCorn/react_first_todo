@@ -95,40 +95,31 @@ export default class TodoList extends Component{
         console.log("Click BIG button", this.state.isLoading)
     }
 
-    // loadingTodos = () => {
-    //     let filteredTodos = [];   
-    //     if (this.state.filter === allItems){
-    //         filteredTodos = this.state.listItems;
-    //     };
-    //     if (this.state.filter === completedItems) {
-    //         filteredTodos = this.state.listItems.filter(item => item.value )
-    //     };
-    //     if (this.state.filter === activeItems) {
-    //         filteredTodos = this.state.listItems.filter(item => !item.value)
-    //         console.log("This code wasn't writed")
-    //         }
+    loadingTodos = (todos) => {
+    // loading data
+        console.log(this.state.isLoading, "Insid loadingTodos()")
+        if (this.state.isLoading){
+            return <Loading/>;
+        }
+        return <div>
+        {todos.map((i) => {
+            return (
+                <TodoItem
+                    key={i.id}
+                    item={i}
+                    deleteItem={this.deleteItem}
+                    setUpdate={this.setUpdate}
+                    changeItemValue={this.changeItemValue}
+                />
+            ) 
+        })}
+    </div>
+    }
 
-
-    //     if (this.state.isLoading){
-    //         return <Loading/>;
-    //     }
-    //     return <div>
-    //     {filteredTodos.map((i) => {
-    //         return (
-    //             <TodoItem
-    //                 key={i.id}
-    //                 item={i}
-    //                 deleteItem={this.deleteItem}
-    //                 setUpdate={this.setUpdate}
-    //                 changeItemValue={this.changeItemValue}
-    //             />
-    //         ) 
-    //     })}
-    // </div>
-    // }
+    
 
     render(){
-
+        
         //sorting for filtering elements
         
         let filteredTodos = [];   
@@ -140,19 +131,8 @@ export default class TodoList extends Component{
         };
         if (this.state.filter === activeItems) {
             filteredTodos = this.state.listItems.filter(item => !item.value)
-            console.log("This code wasn't writed")
-            };
+        };
 
-
-
-
-        // loading data   (НАДО УДАЛИТЬ)
-
-        // let styleForList = "";
-        // const loadingStyle = this.state.isLoading ? " loading" : "";
-        // styleForList += loadingStyle;
-            
-        
         return(    
         <div className="todo_list-style" onSubmit = {this.addItem}>
             
@@ -172,17 +152,7 @@ export default class TodoList extends Component{
                 <button type="submit" id="loading-button" onClick={this.loadingData}>Big fat button</button>
             </div>
             <div>
-                {filteredTodos.map((i) => {
-                    return (
-                        <TodoItem
-                            key={i.id}
-                            item={i}
-                            deleteItem={this.deleteItem}
-                            setUpdate={this.setUpdate}
-                            changeItemValue={this.changeItemValue}
-                        />
-                    ) 
-                })}
+                {this.loadingTodos(filteredTodos)}
             </div>
             
         </div>    
