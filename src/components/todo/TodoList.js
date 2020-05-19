@@ -12,6 +12,7 @@ const allItems = "allItems";
 const completedItems = "completedItems";
 const activeItems = "activeItems";
 
+
 export default class TodoList extends Component{
 
     constructor(props){
@@ -150,6 +151,9 @@ export default class TodoList extends Component{
                 <button type="submit" id="save-button" onClick={this.saveInLocalStorage} >Save</button>
 
                 <button type="submit" id="loading-button" onClick={this.loadingData}>Big fat button</button>
+
+                <button type="submit" id="button-that-changes-app-style" >Chenging style</button>
+
             </div>
             <div>
                 {this.loadingTodos(filteredTodos)}

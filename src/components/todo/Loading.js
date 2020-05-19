@@ -6,8 +6,13 @@ export default class Loading extends Component{
     render(){
         return(
         <div className="loading">
-            Please, don't fart
+
+            <div id="orange">
+                
+            </div>
+
         </div>
+        
         )
     }
 }
