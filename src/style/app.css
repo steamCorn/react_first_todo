@@ -1,5 +1,4 @@
 body{
-    
     margin: 0;
     font-family: 'Raleway', sans-serif;
     /* background-color: #523527; */
@@ -9,7 +8,12 @@ body{
     /*background-color: #fe982f; */
     /* background-color: #bc4f07; */
     background-image: url(picture/2d_orages.jpg);
-  
+}
+
+@media (max-width: 320px){
+    .todo_list-style{
+        width: 100%;
+    }
 }
 
 

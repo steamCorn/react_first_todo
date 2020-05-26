@@ -27,8 +27,7 @@ export default class TodoList extends Component{
     componentDidMount = async () =>{
         let usedData = await getTodos();
         this.setState({
-            listItems: usedData,
-            isLoading: true
+            listItems: usedData
         })
     }
 
@@ -98,7 +97,7 @@ export default class TodoList extends Component{
 
     loadingTodos = (todos) => {
     // loading data
-        console.log(this.state.isLoading, "Insid loadingTodos()")
+        console.log(this.state.isLoading, "Inside loadingTodos()")
         if (this.state.isLoading){
             return <Loading/>;
         }
@@ -152,9 +151,8 @@ export default class TodoList extends Component{
 
                 <button type="submit" id="loading-button" onClick={this.loadingData}>Big fat button</button>
 
-                <button type="submit" id="button-that-changes-app-style" >Chenging style</button>
-
             </div>
+           
             <div>
                 {this.loadingTodos(filteredTodos)}
             </div>

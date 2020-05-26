@@ -1,0 +1,51 @@
+input[type=checkbox]:after {
+    border: 2px solid  #bc4f07;
+}
+
+input[type=checkbox]:checked:after {
+    border-color: #ffffff;
+}
+
+.input-style input{
+    color: #ffffff;
+    background-color: #a8a660;
+}
+.input-style input::placeholder{
+    color: rgba(255, 255, 255, 0.5);
+}
+ 
+.range_buttons{
+    position: relative;
+    background-color:#a8a660;
+    width: 100%;
+    margin: 10px 0;
+}
+
+#save-button, #button-for-all-list,
+#button-completed, #button-for-unchecked-items{
+    background-color: #a8a660;
+}
+
+#add-button:hover, #save-button:hover,
+#save-button:hover, #button-for-all-list:hover,
+#button-completed:hover, #button-for-unchecked-items:hover{
+    background-color: #a8a660;
+    background-color: #6bc4a6;
+    border-bottom: 5px solid #6bc4a6;
+}
+
+#add-button{
+    background-color: #a8a660;
+}
+#add-button:hover, #save-button:hover{
+    background-color: #6bc4a6;
+}
+
+.items-style {
+    background-color: #fe982f;
+}
+
+
+.todo_list-style{
+    background-color: #dadfbc;
+}
