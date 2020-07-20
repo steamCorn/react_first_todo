@@ -25,10 +25,22 @@ export default class TodoList extends Component{
     }
 
     componentDidMount = async () =>{
+        this.setState({isLoading: true});
         let usedData = await getTodos();
+        // data loaded
+        if(!usedData){
+            alert("Hmm... Looks like your list are lost somewhere");
+            this.setState({
+                listItems: [],
+                isLoading: false
+            })
+        }
+        else{
         this.setState({
-            listItems: usedData
+            listItems: usedData,
+            isLoading: false
         })
+    }
     }
 
 
@@ -97,6 +109,7 @@ export default class TodoList extends Component{
 
     loadingTodos = (todos) => {
     // loading data
+    console.log(todos);
         console.log(this.state.isLoading, "Inside loadingTodos()")
         if (this.state.isLoading){
             return <Loading/>;

@@ -42,8 +42,14 @@ function setTodosToBackend(todos){
     });
     console.log('todo seted to Backend');
 }
-
+//to -> from
 async function getTodosToBackend(){
+    try
+    {
+        
+    }
+    catch{}
+
     const result = await fetch('http://localhost:3001/todos')
         .then(response => response.json())
         .then(item => {
