@@ -1,9 +1,8 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../../style/loading.css';
 
-export default class Loading extends Component{
+export default function Loading() {
 
-    render(){
         return(
         <div className="loading">
 
@@ -14,5 +13,5 @@ export default class Loading extends Component{
         </div>
         
         )
-    }
+    
 }
