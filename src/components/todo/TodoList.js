@@ -26,6 +26,7 @@ export default class TodoList extends Component{
 
     componentDidMount = async () =>{
         this.setState({isLoading: true});
+        console.log(this.state.isLoading, "Inside componentDidMount()")
         let usedData = await getTodos();
         // data loaded
         if(!usedData){
@@ -85,9 +86,7 @@ export default class TodoList extends Component{
         )      
     };
 
-    saveInLocalStorage = () => {
-        setTodos(this.state.listItems);
-    }
+
 
     sortingItems = (appliedFilter) => {
         
@@ -99,18 +98,30 @@ export default class TodoList extends Component{
            
     };
 
-    loadingData = () =>{
+    //
+    // loadingData is not necessary. It cheacks animation fo loading
+    //
+
+    // loadingData = () =>{
         
-        this.setState({
-            isLoading : !this.state.isLoading
-        })
-        console.log("Click BIG button", this.state.isLoading)
+    //     this.setState({
+    //         isLoading : !this.state.isLoading
+    //     })
+    //     console.log("Click BIG button", this.state.isLoading)
+    // }
+
+    savingTodos = async () => {
+        this.setState({isLoading: true});
+        let p = setTodos(this.state.listItems);
+        console.log(this.state.isLoading, "Inside savingTodos()") 
+        setTimeout(() => this.setState({isLoading: false}), 1200) //<-- kostyl!
+        
+        console.log(this.state.isLoading, "Inside savingTodos()")   
     }
 
-    loadingTodos = (todos) => {
+    loadTodos = (todos) => {
     // loading data
-    console.log(todos);
-        console.log(this.state.isLoading, "Inside loadingTodos()")
+        console.log(this.state.isLoading, "Inside loadTodos")
         if (this.state.isLoading){
             return <Loading/>;
         }
@@ -160,14 +171,15 @@ export default class TodoList extends Component{
                 <button  type="submit" id="button-for-unchecked-items" 
                 onClick={() => this.sortingItems(activeItems)}>Active</button> 
 
-                <button type="submit" id="save-button" onClick={this.saveInLocalStorage} >Save</button>
+                <button type="submit" id="save-button" onClick={this.savingTodos} >Save</button>
+
 
                 <button type="submit" id="loading-button" onClick={this.loadingData}>Big fat button</button>
 
             </div>
            
             <div>
-                {this.loadingTodos(filteredTodos)}
+                {this.loadTodos(filteredTodos)}
             </div>
             
         </div>    

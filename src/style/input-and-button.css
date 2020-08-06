@@ -84,8 +84,9 @@
     margin: 10px 0;
 }
 
-
+/* Button for check animation fo loading */
 #loading-button{
+    display: none;
     position: absolute;
     top: -230%;
     left: 110%;
@@ -94,6 +95,7 @@
     border: 3px solid black;
     background-color: #46e640;
 }
+
 /*
 #button-that-changes-app-style{
     position: absolute;
